@@ -10,10 +10,11 @@ import { Negociacoes } from '../models/negociacoes.js';
 import { MensagemView } from '../views/mensagem-view.js';
 import { NegociacoesView } from '../views/negociacoes-view.js';
 import { logarTempoDeExecucao } from '../decorators/logar-tempo-de-execucao.js';
+import { inspect } from '../decorators/inspect.js';
 export class NegociacaoController {
     constructor() {
         this.negociacoes = new Negociacoes();
-        this.negociacoesView = new NegociacoesView('#negociacoesView', true);
+        this.negociacoesView = new NegociacoesView('#negociacoesView');
         this.mensagemView = new MensagemView('#mensagemView');
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
@@ -47,5 +48,6 @@ export class NegociacaoController {
     }
 }
 __decorate([
+    inspect,
     logarTempoDeExecucao()
 ], NegociacaoController.prototype, "adiciona", null);
